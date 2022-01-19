@@ -1226,6 +1226,8 @@ i{
 
 .CTA-event {
         position: relative;
+        margin: auto;
+    width: fit-content;
     }
 
     .CTA-event:hover .CTA-event-icon {
@@ -1282,6 +1284,35 @@ i{
         width: 15em;
         justify-content: center;
         text-transform: uppercase;
+    }
+    .twoline {
+        .CTA-event-thumbnail {
+            color: $main-color;
+            border: solid $main-color 4px;
+            width: 17em;
+            box-shadow:  none;
+            background: white;
+            text-transform: uppercase;
+            display: block;
+            line-height: 1.5;
+            transition: transform 150ms ease;
+        }
+        
+    }
+    .twoline:hover {
+        .CTA-event-thumbnail{
+            box-shadow:  none;
+            background: $main-light;
+            transform: scale(1.05);
+        }
+
+     }
+
+    .CTA-event-smalltext {
+        display: block;
+        font-size: 13px;
+        text-transform: none;
+        color: rgba(0, 0, 0, 0.55);
     }
 
     /*p {*/
