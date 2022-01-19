@@ -26,7 +26,50 @@ $(window).load(function () {
     //     x[myIndex-1].style.display = "block";  
     //     setTimeout(carousel, 2000); // Change image every 2 seconds
     // }
+
+
+
 })
+
+
+// var slideIndex = 1;
+// showSlides(slideIndex);
+
+function plusSlides(n) {
+      var scrollwrap = document.querySelector(".scrollwrap");
+
+  // showSlides(slideIndex += n);
+    scrollwrap.scrollBy({
+        top: 0,
+        left: n*100,
+        behavior: 'smooth'
+    });
+
+}
+
+// function currentSlide(n) {
+//   showSlides(slideIndex = n);
+// }
+
+// function showSlides(n) {
+//   var i;
+//   var slides = document.getElementsByClassName("mySlides");
+//   var dots = document.getElementsByClassName("dot");
+//   if (n > slides.length) {slideIndex = 1}    
+//   if (n < 1) {slideIndex = slides.length}
+//   for (i = 0; i < slides.length; i++) {
+//       slides[i].className = slides[i].className.replace(" active", "");
+
+//       // slides[i].className += " active";
+//   }
+//   for (i = 0; i < dots.length; i++) {
+//       dots[i].className = dots[i].className.replace(" active", "");
+//   }
+//   slides[slideIndex-1].className += " active";
+
+//   // slides[slideIndex-1].style.display = "block";  
+//   dots[slideIndex-1].className += " active";
+// }
 
 window.onload = reloadGif();
 
@@ -42,20 +85,20 @@ function reloadGif() {
 
 $(document).ready(function () {
     "use strict";
-            var w = 0;
+    var w = 0;
 
     // scroll menu
     var sections = $('.section'),
-        nav = $('.navbar-fixed-top,footer,.postnav'),
-        nav_height = nav.outerHeight(),
-        window_height = window.innerHeight - nav_height;
+    nav = $('.navbar-fixed-top,footer,.postnav'),
+    nav_height = nav.outerHeight(),
+    window_height = window.innerHeight - nav_height;
 
     $(window).on('scroll', function () {
         var cur_pos = $(this).scrollTop();
 
         sections.each(function () {
             var top = $(this).offset().top - nav_height,
-                bottom = top + $(this).outerHeight();
+            bottom = top + $(this).outerHeight();
 
             if (cur_pos >= top && cur_pos <= bottom) {
                 nav.find('a').removeClass('active');
@@ -92,7 +135,7 @@ $(document).ready(function () {
 
     nav.find('a').on('click', function () {
         var $el = $(this),
-            id = $el.attr('href');
+        id = $el.attr('href');
 
         $('html, body').animate({
             scrollTop: $(id).offset().top - nav_height + 2
@@ -119,7 +162,7 @@ $(document).ready(function () {
     });
 
     //  isotope
-    $('#projects').waitForImages(function () {
+    $('#projects_product').waitForImages(function () {
         var $container = $('.portfolio_container');
         $container.isotope({
             filter: '*',
@@ -165,6 +208,35 @@ $(document).ready(function () {
         });
 
     });
+
+
+    //hover card
+
+
+    var wrap = $(".3dhover");
+
+    wrap.on("mousemove", function (e) {
+
+      var target = e.target;
+
+      if (target.classList.contains("portfolio_item")) {
+
+        var ax = -(e.clientX - target.getBoundingClientRect().left - target.offsetWidth / 2 ) / 10;
+
+        var ay = (e.clientY - target.getBoundingClientRect().top - target.offsetHeight / 2) / 20;
+
+        target.style.transform = "rotateY(" + ax + "deg) rotateX(" + ay + "deg)";
+        target.style.transition = "none";
+
+
+        $(this).children().children().on("mouseleave", function (e) {
+          target.style.transform = "rotateZ(0)";
+          target.style.transition = "transform 200ms ease";
+      });
+    }
+    });
+
+
 
     //animatedModal
     $("#demo01,#demo02,#demo03,#demo04,#demo05,#demo06,#demo07,#demo08,#demo09").animatedModal();

@@ -4,18 +4,33 @@
     <div class="col-md-12">
       <div class="h-50"></div>
 
-      <h2>More Work<span id="blink">_</span></h2> 
+{%- if page.category -%}
+      <h2>More Fun<span class="blink">_</span></h2> 
+{%- else -%}
+      <h2>More Work<span class="blink">_</span></h2> 
+
+{%- endif -%}
+
     </div>
-    <!-- <div class="h-50"></div> -->
-    <!-- main container -->
+       
     <div class="main-container portfolio-inner clearfix">
-      <!-- portfolio div -->
-      <div class="portfolio-div">
-        <div class="portfolio">
-          {%- include portfolio.html -%}
+
+                                 <div class="h-50"></div>
+        <div class="portfolio-div">
+           <div class="portfolio">
+
+
+{%- if page.category -%}
+                  {%- include portfolio_creative.html -%}
+{%- else -%}
+                  {%- include portfolio_product.html -%}
+{%- endif -%}
+
+
+
+          </div>
+         <!-- portfolio -->
         </div>
-        <!-- portfolio -->
-      </div>
       <!-- end portfolio div -->
     </div>
     <!-- end main container -->

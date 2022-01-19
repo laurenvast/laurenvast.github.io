@@ -19,7 +19,7 @@ layout: default
 
 <!--           <h3 class="description">I'm a <strong>Designer</strong> and a <strong>Technologist</strong> with expertise in Interaction design, UI design, Web Animation, and Code-Based Prototyping. </h3> -->
 
-          <h3 class="description">Expert at crafting interactive experiences that delight people with my multi-disciplinary skills in <strong>design</strong>, <strong>code</strong>, <strong>motion</strong>, and <strong>art</strong>. </h3>
+          <h3 class="description">Expert at crafting <strong>interactive experiences</strong> that delight people with my multi-disciplinary skills in <strong>design</strong>, <strong>code</strong>, and <strong>motion</strong>. </h3>
 
           <!-- <h3 class="description">Specialized in <strong>interaction</strong> and <strong>UI design</strong>, <strong>web animation</strong>, and <strong>code-based prototyping</strong>.</h3> -->
                   <div class="h-20"></div>
@@ -29,7 +29,7 @@ layout: default
 <ul class="social2">
         <li><a href="https://www.linkedin.com/in/{{ site.linkedin_username }}/" onclick="ga('send', 'event', 'social', 'click', 'linkedin')" target="_blank"><i class="ion-social-linkedin"></i></a></li>
         <li><a href="http://codepen.io/{{ site.codepen_username }}/" onclick="ga('send', 'event', 'social', 'click', 'codepen')" target="_blank"><i class="ion-social-codepen"></i></a></li>
-        <li><a href="http://codepen.io/{{ site.github_username }}/" onclick="ga('send', 'event', 'social', 'click', 'codepen')" target="_blank"><i class="ion-social-github"></i></a></li>
+        <li><a href="http://github.com/{{ site.github_username }}/" onclick="ga('send', 'event', 'social', 'click', 'codepen')" target="_blank"><i class="ion-social-github"></i></a></li>
         <li><a href="https://instagram.com/{{ site.instagram_username }}/" onclick="ga('send', 'event', 'social', 'click', 'instagram')" target="_blank"><i class="ion-social-instagram-outline"></i></a></li>
         <!-- <li><a onClick="javascript:window.open('mailto:{{ site.email }}', 'mail');event.preventDefault(); ga('send', 'event', 'social', 'click', 'email')" href="mailto:{{ site.email }}"><i class="ion-ios-email"></i></a></li> -->
     </ul>
@@ -47,5 +47,10 @@ layout: default
 <!-- ./home -->
 
 {%- include projects.html -%}
+
+<div>
+{%- include reviews.html -%}
+</div>
+
 
 {%- include about.html -%}

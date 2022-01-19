@@ -1,0 +1,19 @@
+
+
+	{%- if site.posts.size > 0 -%}
+                    <div class="no-padding clearfix">
+
+					{%- for post in site.posts -%}
+							{%- if page.title == post.title  -%}
+
+							{%- elsif post.category == "fun"  -%}
+								{%- include singlework.html -%}
+							{%- endif -%}
+
+					{%- endfor -%}
+
+
+				</div>
+				{%- endif -%}
+
+    <div class="h-50"></div>

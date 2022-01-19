@@ -1,25 +1,46 @@
 
 
  <!-- single work -->
-<div class=" {{ post.cols }} {{ post.categorie1 }}  {{ post.categorie2 }} {{ post.categorie3 }} {{ post.categorie4 }} {{ post.categorie5 }}">
-    <a href="{{ post.url | relative_url }}" class="portfolio_item"> <img src="{{ post.thumb }}" alt="image" class="img-responsive"/>
+
+{%- if post.category != "fun"  -%}
+      <div class=" col-md-4 col-sm-6 {{ post.categorie1 }}  {{ post.categorie2 }} {{ post.categorie3 }} {{ post.categorie4 }} {{ post.categorie5 }}" >
+        {%- if post.status == "empty" -%}
+          <a class="portfolio_item" style="background: rgba(195, 75, 81, .07); pointer-events: none;
+">
+        {%- else -%}
+
+            <a href="{{ post.url | relative_url }}" class="portfolio_item" style="background: {{ post.cardcolor }};">
+        {%- endif -%}
+
+            <div class="imgwrap"><img src="{{ post.thumb }}" alt="image" class="img-responsive" style="transform: scale(.9);" /></div>
             <div class="portfolio-border clearfix">
-                <div class="item_info">
-                    {%- assign date_format = site.minima.date_format | default: "%Y" -%}
+            
+            {%- assign date_format = site.minima.date_format | default: "%Y" -%}
+            <!-- <label>{{ post.client }} · {{ post.date | date: date_format }}</label> -->
+             <p class="card-excerpt">{{ post.excerpt }} </p>
 
-                    <label>{{ post.client }} · {{ post.date | date: date_format }}</label>
+        {%- if post.status == "password" -%}
+            <h3 class="size-h3">{{ post.title | escape }}  <i class="ion-locked subtaltext" style="font-size: .75em;"></i></h3>
+        {%- elsif post.status == "empty" -%}
+           <h3 class="size-h3">{{ post.title | escape }}<span> (not avalible online)</span></h3>
+        {%- else -%}
+            <h3 class="size-h3">{{ post.title | escape }}</h3>
+        {%- endif -%}
 
-                {%- if post.password -%}
-                    <h2 class="size-h3">{{ post.title | escape }}  <i class="ion-locked subtaltext" style="font-size: .75em;"></i></h2>
 
-               {%- else -%}
-                    <h2 class="size-h3">{{ post.title | escape }}</h2>
-                {%- endif -%}
 
-                	<h3>{{ post.excerpt }}</h3>
-                    
-                </div>
-                <!-- <h6>Read More <i class="ion-ios-arrow-right"></i></h6> -->
+
+{%- else -%}
+      <div class="col-md-3 col-sm-4">
+         <a href="{{ post.url | relative_url }}" class="portfolio_item passion"> 
+            <img src="{{ post.thumb }}" alt="image" class="img-responsive"/>
+                   <div class="portfolio-border">
+                        <h3 class="size-h4">{{ post.title | escape }}</h3>
+                         <p class="card-excerpt">{{ post.excerpt }}</p>
+
+
+{%- endif -%}
+
             </div>
     </a>
 </div>
