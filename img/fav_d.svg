@@ -1,0 +1,30 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+	<style>
+    #l {
+      fill: black;
+    }
+    .o {
+      fill: #C44F55;
+    }
+    @media (prefers-color-scheme: dark) {
+      #l {
+        fill: white;
+      }
+      <!-- .o {
+        fill: #C44F55;
+    } -->
+    }
+  </style>
+
+<g clip-path="url(#clip0_968_31097)">
+<path class="o" d="M12 4H9V7H12V4Z"/>
+<path class="o" fill-rule="evenodd" clip-rule="evenodd" d="M16 0H0V16H16V0ZM2 14V2H14V14H2Z"/>
+<path id="l" d="M6 3H4V12H11V10H6V3Z" />
+</g>
+<defs>
+<clipPath id="clip0_968_31097">
+<rect width="16" height="16" fill="white"/>
+</clipPath>
+</defs>
+</svg>
