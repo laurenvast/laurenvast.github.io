@@ -1,5 +1,5 @@
 
-$main-color: hsl(357, 50%, 54%);
+$main-color: hsl(357, 60%, 54%);
 $main-light: hsl(357, 62%, 97%);
 $main-dark: hsl(357, 62%, 32%);
 /*$main-color: hsl(7, 72%, 51%);*/
@@ -139,6 +139,9 @@ b {
 }
 .subtaltext {
     color: $text-color-light;
+    font-weight: normal;
+/*    color: rgba(0, 0, 0, 0.55);*/
+    font-size: 17px;
 }
 
 blockquote {
@@ -669,15 +672,16 @@ display: inline-block;
     padding: 50px 0;
 
     .singlereview {
+        font-size: 17px;
         background: white;
         padding: 2em 3em; 
         margin: 0 1em;
         display: inline-block;
-        min-width: 56vw;
+        min-width: 48vw;
         scroll-snap-align: start;
         position: relative;
-        box-shadow: $main-bg-light 12px 12px 0 0;
-        /*border: solid $main-shadow 8px;*/
+        box-shadow: $main-color 8px 8px;
+        border: solid $main-color 2px;
 
     }
     section:first-of-type {
@@ -1056,15 +1060,13 @@ i{
 
     &.passion{
            display: block;
-           transition: transform 300ms ease-in-out;
+           transition: transform 100ms ease-in-out, box-shadow 150ms ease-in-out;
+           box-shadow: 0 0 0 4px white, 0 0 0 4px $main-bg-light, 0 0 0 4px $main-color;
            &:hover {
-                background: $main-bg-light;
-                box-shadow: $main-bg-light 0 0 0 12px;
-
-                img {
-                    transform: scale(1.04);
+                box-shadow: 0 0 0 8px white, -8px -8px 0 4px $main-bg-light, 8px 8px 0 4px $main-color;
+                transform: scale(1.03);
+            
                 }
-           }
           
  
     }

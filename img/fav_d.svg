@@ -5,14 +5,14 @@
       fill: black;
     }
     .o {
-      fill: #C44F55;
+      fill: #D0434A;
     }
     @media (prefers-color-scheme: dark) {
       #l {
         fill: white;
       }
       <!-- .o {
-        fill: #C44F55;
+        fill: #D0434A;
     } -->
     }
   </style>
