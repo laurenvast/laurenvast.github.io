@@ -282,11 +282,23 @@ a {
 
 .description {
     /*line-height: 39px;*/
-    max-width: 31em;
+    max-width: 28em;
     /*opacity: .8;*/
 /* margin: 0;*/
     /*letter-spacing: 1px;*/
+
+    &.subtal {
+            color: $text-color-light;
+            font-weight: normal;
+
+            strong {
+                      color: rgba(0, 0, 0, .8);
+
+            }
+    }
 }
+
+
 
 #cube {
   position: fixed;
