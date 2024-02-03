@@ -695,9 +695,117 @@ display: inline-block;
         box-shadow: $main-color 8px 8px;
         border: solid $main-color 2px;
 
+
+        p:first-child {
+          // white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+            -webkit-line-clamp: 7;
+            -webkit-box-orient: vertical;
+        }
+
     }
-    section:first-of-type {
-        margin-left: 8vw;
+    // section:first-of-type {
+    //     margin-left: 8vw;
+    // }
+
+
+    .aicard {
+        // padding: 1em;
+        // margin-bottom: 1.5em;
+        display: flex;
+        transition: all ease-in-out 500ms;
+        // background-position: top !important;
+         p {
+            color: $text-color-light;
+          }    
+
+
+          .material-symbols-outlined {
+            font-size: 30px;
+                margin: 10px 10px 0 0;
+          }
+
+
+          &.color1 {
+           
+            background: radial-gradient(#F2CEE3 20%, #F2CEE300 50%);
+
+            span {
+                color: #C7388A;
+            }
+          }
+          &.color2 {
+            background: radial-gradient(#ACE6CB 20%, #ACE6CB00 60%);
+            span {
+                color: #006B39;
+            }
+          }
+          &.color3 {
+            background: radial-gradient(#FBD6BC 20%, #FBD6BC00 60%);
+            span {
+                color: #CF5600;
+            }
+          }
+          &.color4 {
+            background: radial-gradient(#D7D4FF 20%, #D7D4FF00 60%);
+            span {
+                color: #574DE2;
+            }
+          }
+          &.color5 {
+            background: radial-gradient(#D8E1B4 20%, #D8E1B400 60%);
+            span {
+                color: #5E7500;
+            }
+          }
+          &.color6 {
+            background: radial-gradient(#C9DFFF 20%, #C9DFFF00 60%);
+            span {
+                color: #0856CA;
+            }
+          }
+
+
+           @keyframes size {
+                  0% {   
+                            background-size: 150% 150%;
+                          background-position: right;
+                    }
+                  25%{  
+                            background-size: 150% 150%;
+                          background-position: bottom;
+                    }
+                      50%{  
+                            background-size: 150% 150%;
+                          background-position: left;
+                    }
+                      75%{  
+                            background-size: 150% 150%;
+                          background-position: top;
+                    }
+                     100%{  
+                            background-size: 150% 150%;
+                          background-position: right;
+                    }
+            }
+
+          &:hover {
+               animation: size 3s linear infinite;
+
+          }
+    }
+
+    h2 + p {
+        color: $text-color-light;
+
+    }
+
+    p > a {
+        color: $main-color;
+        text-decoration: underline;
+    
     }
 
     .name {
@@ -1291,11 +1399,11 @@ i{
         font-size: 16px;
         letter-spacing: 2px;
         font-weight: bold;
-        background-color: $main-color;
+        // background-color: $main-color;
         box-shadow: inset 0 0 0 0em #555;
         display: flex;
-        padding: .7em;
-        width: 15em;
+        padding: .7em 1em;
+        // width: 15em;
         justify-content: center;
         text-transform: uppercase;
     }
@@ -1303,9 +1411,9 @@ i{
         .CTA-event-thumbnail {
             color: $main-color;
             border: solid $main-color 4px;
-            width: 17em;
+            // width: 17em;
             box-shadow:  none;
-            background: white;
+            // background: white;
             text-transform: uppercase;
             display: block;
             line-height: 1.5;
