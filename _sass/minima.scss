@@ -185,7 +185,7 @@ code {
 }
 
 a {
-    cursor: pointer;
+    cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='60' height='72' viewport='0 0 100 100' style='fill:black;font-size:36px;'><text y='50%'>👀</text></svg>") 16 0,auto; 
 }
 
 .size-50 {
@@ -282,9 +282,9 @@ a {
 
 .description {
     /*line-height: 39px;*/
-    max-width: 28em;
+    max-width: 62rem;
     /*opacity: .8;*/
-/* margin: 0;*/
+ margin: 0;
     /*letter-spacing: 1px;*/
 
     &.subtal {
@@ -595,7 +595,7 @@ a.active {
 #logoicon {
     background-image: url(../img/fav_s.svg);
     background-size: cover;
-    width: 24px;
+    min-width: 24px;
     height: 100%;
         margin-right: 10px;
 display: inline-block;
@@ -616,12 +616,16 @@ display: inline-block;
         opacity: 0;
         transform: translate(0, 10px);
         transition: all 250ms ease;
+        text-align: start;
+         line-height: 1.25;  
     }
 }
 
 .postheader{
             font-size: 14px;
         transform: translate(0, 1px);
+               text-align: start;
+         line-height: 1.25;  
 }
 
 .menu > li {
@@ -631,7 +635,8 @@ display: inline-block;
 .v-center {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    flex-grow: 2;
 }
 
 .w-m {
@@ -713,18 +718,31 @@ display: inline-block;
 
     .aicard {
         // padding: 1em;
-        // margin-bottom: 1.5em;
+        margin-bottom: 10px;
         display: flex;
         transition: all ease-in-out 500ms;
+        box-shadow: inset #ededed 0 0 50px 20px;
         // background-position: top !important;
-         p {
+         
+        .card-excerpt {
             color: $text-color-light;
+            font-size: 14px;
+            font-weight: 500;
+            // letter-spacing:  0.38px;
+            line-height: 20px;
+        }
+
+         .aibody {
+            font-size: 17px;
+            font-weight: 500;
+            letter-spacing: .02em;
+            line-height: 23px;
           }    
 
 
           .material-symbols-outlined {
             font-size: 30px;
-                margin: 10px 10px 0 0;
+            margin: 10px 10px 0 0;
           }
 
 
@@ -792,13 +810,14 @@ display: inline-block;
             }
 
           &:hover {
-               animation: size 3s linear infinite;
+               animation: size 2s linear infinite;
 
           }
     }
 
     h2 + p {
         color: $text-color-light;
+        margin-bottom: 50px;
 
     }
 
@@ -1179,14 +1198,22 @@ i{
     margin-bottom: 30px;
 
     &.passion{
+        img {
+           transition: all .2s ease-in-out;
+
+        }
            display: block;
-           transition: transform 100ms ease-in-out, box-shadow 150ms ease-in-out;
-           box-shadow: 0 0 0 4px white, 0 0 0 4px $main-bg-light, 0 0 0 4px $main-color;
+           // transition: transform 100ms ease-in-out, box-shadow 150ms ease-in-out;
+           // box-shadow: 0 0 0 4px white, 0 0 0 4px $main-bg-light, 0 0 0 4px $main-color;
            &:hover {
-                box-shadow: 0 0 0 8px white, -8px -8px 0 4px $main-bg-light, 8px 8px 0 4px $main-color;
-                transform: scale(1.03);
-            
+                // box-shadow: 0 0 0 8px white, -8px -8px 0 4px $main-bg-light, 8px 8px 0 4px $main-color;
+                // transform: scale(1.03);
+                img {
+                    border-radius: 100%;
+                    transform: scale(1.1);
+
                 }
+            }
           
  
     }
@@ -1408,26 +1435,38 @@ i{
         text-transform: uppercase;
     }
     .twoline {
+
+        * {
+             transition: all .2s ease-in-out;
+
+        }
         .CTA-event-thumbnail {
             color: $main-color;
-            border: solid $main-color 4px;
+            border: solid $main-color 5px;
             // width: 17em;
-            box-shadow:  none;
+            // box-shadow:  none;
             // background: white;
             text-transform: uppercase;
             display: block;
             line-height: 1.5;
-            transition: transform 150ms ease;
+            // transition: transform 150ms ease;
+                box-shadow: inset 0 0 0 0em $main-color;
+            font-weight: 900;
         }
         
     }
     .twoline:hover {
         .CTA-event-thumbnail{
+            color: white;
             box-shadow:  none;
             background: $main-light;
-            transform: scale(1.05);
-        }
+            // transform: scale(1.05);
+                box-shadow: inset 300px 0 0 0em $main-color;
 
+        }
+        .CTA-event-smalltext {
+            color: rgba(255,255,255, .7)
+        }
      }
 
     .CTA-event-smalltext {
@@ -1435,6 +1474,7 @@ i{
         font-size: 13px;
         text-transform: none;
         color: rgba(0, 0, 0, 0.55);
+        font-weight: 600;
     }
 
     /*p {*/
@@ -1774,7 +1814,9 @@ fieldset {
         }
     }
     
-
+    .v-center{
+        // display: none;
+    }
 
 }
 
@@ -1902,6 +1944,10 @@ fieldset {
         box-shadow: 0 0 40px #888888;
 
     }
+
+    // #logoicon {
+    //     display: none;
+    // }
 
 /*.wide > a.portfolio_item {
     display: flex;

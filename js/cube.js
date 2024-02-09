@@ -17,7 +17,7 @@ var cube = function(p){
     var x, y, l, m, mx, my, x1, x2, x3, x4, y1, y2, y3, y4, y5, y6;
 
     x = p.width / 7 * 5;
-    y = p.height / 2;
+    y = p.height / 1.9;
     l = (p.height + p.width) / 2 / 4;
 
     //find the distants between mouse and mid-point
@@ -25,9 +25,9 @@ var cube = function(p){
     my = (p.mouseY - p.height / 2) / 2;
 
     m = Math.sqrt(l * l - l / 2 * l / 2);
-    x1 = x - m;
+    x1 = x - m * .9;
     x2 = x - mx - a;
-    x3 = x + m;
+    x3 = x + m * .9;
     x4 = x + mx + a;
     y1 = y - l + my;
     y2 = y - l / 2;
@@ -39,8 +39,9 @@ var cube = function(p){
 
     // p.stroke(212, 72, 37);
     p.stroke(240, 212, 212);
+        // p.stroke(208, 67, 74);
     // p.stroke(246, 214, 206);
-    p.strokeWeight(l/20);
+    p.strokeWeight(l/16);
 
     p.line(x1, y2, x4, y3);
     p.line(x4, y3, x4, y5);

@@ -27,10 +27,13 @@ $(document).ready(function () {
             $(".navbar-fixed-top").addClass("scroll-nav");
           $('.logotext').css( "transform", "translate(0, 1px)" );
           $('.logotext').css( "opacity", "1" );
+          // $('#logoicon').css( "display", "none" );
         } else {
             $(".navbar-fixed-top").removeClass("scroll-nav");
                         $('.logotext').css( "opacity", "0" );
           $('.logotext').css( "transform", "translate(0, 10px)" );
+                    // $('#logoicon').css( "display", "block" );
+
         }
     });
 
