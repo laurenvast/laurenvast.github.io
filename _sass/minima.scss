@@ -1213,7 +1213,7 @@ i{
     &.passion{
         img {
            transition: transform .15s ease-in-out, border-radius .1s ease;
-           border-radius: $round-corner;
+           border-radius: 100%;
 
         }
            display: block;
