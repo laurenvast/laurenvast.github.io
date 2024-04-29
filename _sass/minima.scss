@@ -8,6 +8,7 @@ $main-shadow: rgba($main-color, .3);
 $main-bg-light: rgba($main-color, .1);
 
 $text-color-light: rgba(0, 0, 0, 0.55);
+$round-corner: 4rem;
 
 
 /* Table of Content
@@ -30,8 +31,8 @@ $text-color-light: rgba(0, 0, 0, 0.55);
 ==================================================*/
 
 h1 {
-    font-family: 'Scope One', serif;
-    font-size: 84px;
+    font-family: 'Signika', serif;
+    font-size: 96px;
     line-height: 1.3;
    letter-spacing: 0;
    margin-bottom: 29px;
@@ -53,7 +54,7 @@ h4 {
     line-height: 1.4;
     color: rgba(0, 0, 0, 0.8);
     margin: 10px 0;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 h5 {
@@ -83,11 +84,12 @@ h5:before {
 }
 
 h2 {
-    font-family: 'Scope One', serif;
+    font-family: 'Signika', serif;
     font-size: 47px;
     line-height: 72px;
     letter-spacing: 0;
     margin-top: 0;
+    margin-bottom: .5em;
 
 }
 
@@ -101,7 +103,7 @@ h3 {
     line-height: 1.4;
     color: rgba(0, 0, 0, 0.8);
     margin: 10px 0;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 h6 {
@@ -126,6 +128,8 @@ label {
 
 strong {
     color: $main-color;
+   font-family: "Signika";
+
 }
 
 b {
@@ -170,9 +174,11 @@ body {
     font-family: 'Lato', sans-serif;
     font-size: 19px;
     line-height: 1.65em;
-    color: rgba(0, 0, 0, .8);
+    color: rgba(0, 0, 0, .75);
     letter-spacing: .02em;
-    /*background: #f8f4f3;*/
+    background: #E7F7A4;
+    // overflow-x: hidden;
+    // width: 100%;
 }
 
 
@@ -181,6 +187,8 @@ code {
     background-color: rgba($main-color, .1);
     white-space: nowrap;
     margin-right: .5em;
+   font-family: "Signika";
+
 
 }
 
@@ -229,7 +237,7 @@ a {
     padding: 24px 0;
 
     p {
-        font-family: 'Scope One', serif;
+        font-family: 'Signika', serif;
         font-size: 32px;
         line-height: 1.3;
         /*color: rgba(0, 0, 0, 0.8);*/
@@ -528,7 +536,7 @@ nav ul {
 }
 
 nav li {
-    display: inline-block;
+    display: flex;
     margin: 0 10px;
 }
 
@@ -536,10 +544,12 @@ nav li a {
     text-transform: uppercase;
 letter-spacing: .125em;
     color: #444;
-    font-size: 13px;
-    font-weight: bold;
+    font-size: 14px;
+    // font-weight: bold;
     height: 100%;
     display: inline-block;
+                   font-family: "Signika";
+         font-weight: 600;
 }
 
 .bg-nav {
@@ -985,11 +995,13 @@ i{
 
 .about-img-div img {
     margin: 0 auto;
+    border-radius: $round-corner;
 }
 
 .about-border {
     position: absolute;
-    border: 10px solid $main-color;
+    border: 1em solid $main-color;
+    border-radius: $round-corner*3 0;
     width: 300px;
     height: 300px;
     top: 40px;
@@ -1143,11 +1155,12 @@ i{
 #projects_product {
     /*padding: 100px 0;*/
     padding-top: 50px;
-    background: $main-light;
+    // background: $main-light;
+    background: #F58E82;
 }
 #projects_creative {
     padding-top: 50px;
-    background: white;
+    background: #9DF1C5;
 }
 
 .portfolio .categories-grid span {
@@ -1199,7 +1212,8 @@ i{
 
     &.passion{
         img {
-           transition: all .2s ease-in-out;
+           transition: transform .15s ease-in-out, border-radius .1s ease;
+           border-radius: $round-corner;
 
         }
            display: block;
@@ -1209,7 +1223,7 @@ i{
                 // box-shadow: 0 0 0 8px white, -8px -8px 0 4px $main-bg-light, 8px 8px 0 4px $main-color;
                 // transform: scale(1.03);
                 img {
-                    border-radius: 100%;
+                    border-radius: $round-corner*2 0;
                     transform: scale(1.1);
 
                 }
@@ -1362,7 +1376,7 @@ i{
 }
 
 #moreproject {
-    background: $main-light;
+    // background: $main-light;
 }
 
 .videos {
@@ -1432,6 +1446,8 @@ i{
         font-weight: 900;
         transition: all .2s ease-in-out;
 
+        border-radius: $round-corner 0;
+
     }
     .twoline {
 
@@ -1439,6 +1455,7 @@ i{
 
             display: block;
             line-height: 1.5;
+
 
         }
 
@@ -1656,6 +1673,7 @@ fieldset {
     display: block;
     text-align: center;
     box-shadow: inset 0 0 0 0em white;
+    border-radius: $round-corner/2 0;
 }
 
 .social li a:hover {
@@ -1698,6 +1716,7 @@ fieldset {
 .social2 li a:hover {
     color: white;
     box-shadow: inset 36px 0 0 0em $main-color;
+    border-radius: $round-corner/3 0;
 
     /*background: $main-color;*/
     /*border: $main-color 3px solid;*/
@@ -1814,7 +1833,7 @@ fieldset {
 
 @media (max-width: 500px) {
     h1 {
-        font-size: 48px;
+        font-size: 54px;
         /*line-height: 70px;*/
     }
     h3 {
@@ -1993,11 +2012,12 @@ a.portfolio_item {
 
     border: none;
     /*background: white;*/
-    border-radius: 0px;
+    border-radius: $round-corner;
     /*box-shadow: $main-shadow 0 2px 0;*/
     transform: translateZ(0);
     transition: none;
 transform-style: preserve-3d; 
+
 
     &:hover {
         /*transform: translate(6px, -6px);*/
@@ -2006,7 +2026,6 @@ transform-style: preserve-3d;
 
         img {
             /*transform: scale(1.06);*/
-
         }
 
     }
@@ -2032,6 +2051,8 @@ transform-style: preserve-3d;
            /*transform: scale(.9);*/
 
         /*transition: all 300ms ease-in-out;*/
+        border-radius: $round-corner/2;
+
     }
 
     p, label {
@@ -2039,7 +2060,7 @@ transform-style: preserve-3d;
 
     }
 
-    h3 {
+    h2 {
         transition: all 300ms ease-in-out;
         transform: translateZ(100px);
 
@@ -2122,3 +2143,73 @@ ul.arrowlist{
     }
 }
 
+
+.wave {
+    width: 100%;
+    height: 20px;
+    display: flex;
+    // transition: margin-left 300ms ease;
+
+
+
+    svg {
+      animation: hscroll 1s linear infinite;
+      animation-play-state: paused;
+      animation-delay: calc(var(--scroll) * -1s);
+
+      animation-iteration-count: 1;
+      animation-fill-mode: both;
+    }  
+    @keyframes hscroll {
+      to {
+        margin-left: -100%;
+      }
+    }
+
+}
+
+
+
+
+#wavepattern{
+  position: absolute;
+  height: 0;
+
+
+
+}
+
+.wave.pre-project{
+    // background: #E7F7A4;
+    fill: #F58E82;
+}
+
+.wave.pre-code{
+    background: #F58E82;
+    fill: #9DF1C5;
+}
+
+.wave.pre-review{
+    background: #9DF1C5;
+    fill: #ededed;
+}
+
+.wave.pre-about{
+    background: #ededed;
+    fill: white;
+}
+
+.wave.pre-more-design{
+    background: white;
+    fill: #F58E82;
+}
+
+.wave.pre-more-code{
+    background: white;
+    fill: #9DF1C5;
+}
+
+.wave.pre-footer{
+    background: white;
+    fill: $main-color;
+}

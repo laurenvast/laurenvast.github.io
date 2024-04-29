@@ -1,5 +1,20 @@
 
-<div class="section" id="moreproject">
+{%- if page.category -%}
+    <div class="wave pre-more-code">
+      <svg width="200%" height="20px">
+       <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-wave-pre-more-code)" />
+      </svg>
+</div>
+<div class="section" id="moreproject" style="background: #9DF1C5;">
+    {%- else -%}
+        <div class="wave pre-more-design">
+      <svg width="200%" height="20px">
+       <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-wave-pre-more-design)" />
+      </svg>
+</div>
+<div class="section" id="moreproject" style="background: #F58E82;">
+
+{%- endif -%}
   <div class="container">
     <div class="col-md-12">
       <div class="h-50"></div>
@@ -15,7 +30,7 @@
        
     <div class="main-container portfolio-inner clearfix">
 
-                                 <div class="h-50"></div>
+                                 <div class="h-20"></div>
         <div class="portfolio-div">
            <div class="portfolio">
 
@@ -36,3 +51,12 @@
     <!-- end main container -->
   </div>
 </div>
+
+
+{%- if page.category -%}
+
+{%- else -%}
+
+{%- endif -%}
+
+

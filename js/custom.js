@@ -29,6 +29,33 @@ $(window).load(function () {
 
 
 
+
+
+
+
+
+})
+
+
+
+var wawes = document.querySelectorAll("div.wave");
+
+window.addEventListener(
+  "scroll",
+      () => {
+    wawes.forEach(element => {
+        var position = window.pageYOffset;
+
+        var topDistance = element.offsetTop-position;
+        if (topDistance < window.innerHeight) {
+                console.log(topDistance / window.innerHeight);
+            element.style.setProperty(
+          "--scroll",( topDistance / window.innerHeight))
+        }
+
+
+
+    })
 })
 
 
