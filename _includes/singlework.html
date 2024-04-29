@@ -20,11 +20,11 @@
              <p class="card-excerpt">{{ post.excerpt }} </p>
 
         {%- if post.status == "password" -%}
-            <h3 class="size-h3">{{ post.title | escape }}  <i class="ion-locked subtaltext" style="font-size: .75em;"></i></h3>
+            <h2 class="size-h3">{{ post.title | escape }}  <i class="ion-locked subtaltext" style="font-size: .75em;"></i></h2>
         {%- elsif post.status == "empty" -%}
-           <h3 class="size-h3">{{ post.title | escape }}<span> (not avalible online)</span></h3>
+           <h2 class="size-h3">{{ post.title | escape }}<span> (not avalible online)</span></h2>
         {%- else -%}
-            <h3 class="size-h3">{{ post.title | escape }}</h3>
+            <h2 class="size-h3">{{ post.title | escape }}</h2>
         {%- endif -%}
 
 
@@ -35,7 +35,7 @@
          <a href="{{ post.url | relative_url }}" class="portfolio_item passion"> 
             <img src="{{ post.thumb }}" alt="image" class="img-responsive"/>
                    <div class="portfolio-border">
-                        <h3 class="size-h4">{{ post.title | escape }}</h3>
+                        <h2 class="size-h4">{{ post.title | escape }}</h2>
                          <p class="card-excerpt">{{ post.excerpt }}</p>
                          <p class="card-excerpt">{{ post.hash }}</p>
 

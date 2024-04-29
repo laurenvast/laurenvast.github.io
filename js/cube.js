@@ -12,7 +12,7 @@ var cube = function(p){
   }
 
   p.draw = function() {
-    p.background(255);
+    p.background(231, 247,164);
 
     var x, y, l, m, mx, my, x1, x2, x3, x4, y1, y2, y3, y4, y5, y6;
 
@@ -38,7 +38,7 @@ var cube = function(p){
     // fill(255, 0);
 
     // p.stroke(212, 72, 37);
-    p.stroke(240, 212, 212);
+    p.stroke(226, 225, 0);
         // p.stroke(208, 67, 74);
     // p.stroke(246, 214, 206);
     p.strokeWeight(l/16);

@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<!-- home -->    
+<!-- home -->   
 <div class="section" data-stellar-background-ratio="0.5">
   <div id="cube" data-aos="fade-in"></div>
 
@@ -13,9 +13,10 @@ layout: default
 
         <div class="h-50"></div>
         <div class="designer">
-          <h4 class="subtaltext" style="margin-top: 0;">Product Designer & Creative Technologist in NYC</h4>
           <h1 style="margin-bottom: 0;" >Lauren Wang</h1>
-                  <div class="h-20"></div>
+                    <h4 class="subtaltext" style="margin-top: 0;">Product Designer & Creative Technologist in NYC</h4>
+
+                  <div class="h-50"></div>
 
 <!--           <h3 class="description">I'm a <strong>Designer</strong> and a <strong>Technologist</strong> with expertise in Interaction design, UI design, Web Animation, and Code-Based Prototyping. </h3> -->
 
@@ -48,11 +49,36 @@ layout: default
 </div>
 <!-- ./home -->
 
-{%- include projects.html -%}
+<div class="wave pre-project">
+      <svg width="400%" height="20px">
+       <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-wave-pre-project)" />
+      </svg>
+</div>
 
-<div>
-{%- include reviews.html -%}
+          {%- include projects.html -%}
+
+
+
+
+<div class="wave pre-review">
+      <svg width="200%" height="20px" fill="#E7F7A4">
+       <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-wave-pre-review)" />
+      </svg>
 </div>
 
 
+{%- include reviews.html -%}
+
+<div class="wave pre-about">
+      <svg width="200%" height="20px" fill="#000000">
+       <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-wave-pre-about)" />
+      </svg>
+</div>
+
 {%- include about.html -%}
+
+<div class="wave pre-footer">
+      <svg width="200%" height="20px" fill="#000000">
+       <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-wave-pre-footer)" />
+      </svg>
+</div>
