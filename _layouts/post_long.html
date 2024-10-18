@@ -11,7 +11,7 @@ layout: postdefalt
     <div class="portfolio-padding">
       <div class="col-md-8 col-md-offset-2" data-aos="fade-up">
         {%- assign date_format = site.minima.date_format | default: "%Y" -%}
-        <label>{{ page.client }}  ·  {{ page.date | date: date_format }}</label>
+        <label>{{ page.client }}</label> <!-- ·  {{ page.date | date: date_format }} -->
         <h2>{{ page.title | escape }}</h2>
         
         {%- if page.role1 -%}
