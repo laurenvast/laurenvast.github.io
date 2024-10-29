@@ -1749,6 +1749,11 @@ fieldset {
 ==================================================*/
 
 @media (max-width: 991px) {
+
+    h1 {
+        font-size: 76px;
+        /*line-height: 70px;*/
+    }
     .size-h3 {
         font-size: 24px;
     }
@@ -2212,4 +2217,226 @@ ul.arrowlist{
 .wave.pre-footer{
     background: white;
     fill: $main-color;
+}
+
+
+
+// AI chat
+.chat-interface {
+  width: 100%;
+//   max-width: 40rem;
+  margin: 0 auto;
+//   background: white;
+//   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  overflow: hidden;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+}
+
+.messages-container {
+    border-radius: 32px;
+    overflow: hidden;
+    flex: 1;
+    margin-bottom: 1rem;
+    min-height: 0;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    padding: 0 2rem;
+    padding-right: 0;
+
+    // display: flex;
+    // flex-direction: column;
+}
+
+
+   
+.messages-container:before {
+    content:'';
+    width:100%;
+    height: 3rem;    
+    position:absolute;
+    left:0;
+    top:0;
+    background:linear-gradient(white, transparent);
+    border-radius: 32px 32px 0 0;
+  } 
+  
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 2rem;
+  padding-top: 2rem;
+
+//   min-height: 0;
+  scroll-behavior: smooth;
+
+//   transition: width 300ms ease;
+}
+
+
+.message-wrapper {
+  margin-bottom: 1.5rem;
+  scroll-margin-top: 1.5rem;
+}
+
+.bot-message {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  background: #e88073;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.message-content {
+  flex: 1;
+//   background: white;
+//   border-radius: 24px;
+//   padding: 1rem;
+}
+
+.message-text {
+  font-size: 1.75rem;
+  line-height: 1.5;
+}
+
+.options-container {
+  margin-left: 32px;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+    border-radius: 24px;
+    border: solid 1px #0000001f;
+overflow: hidden;
+
+    button + button {
+        border-top: solid 1px #0000001f;
+
+    }
+}
+
+.option-button {
+  width: 100%;
+  text-align: left;
+  padding: 1rem;
+//   border-radius: 24px;
+  background: white;
+    border:none;
+//   border-bottom: solid 1px #0000001f;
+  cursor: pointer;
+  transition: all 200ms;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.75rem;
+  line-height: 1.5em;
+
+}
+
+.option-button:not(.selected):hover {
+//   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+//   transform: translateY(-2px);
+    background: #E7F7A4;
+}
+
+.option-button.selected {
+  background: transparent;
+  cursor: default;
+  color: #1a1a1a;
+  font-weight: normal;
+}
+
+.user-message {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1.5rem;
+}
+
+.user-content {
+  background: #E5E59B;
+  border-radius: 24px;
+  padding: 0.75rem 1.25rem;
+  max-width: 80%;
+  font-size: 1.75rem;
+  line-height: 1.75em;
+}
+
+.input-container {
+  flex-shrink: 0;
+//   padding: 1.5rem;
+  background: white;
+  border-radius: 32px;
+  overflow: hidden;
+
+}
+
+.input-form {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-right: 1rem;
+}
+
+.chat-input {
+  width: 100%;
+  padding: 1.5rem 2rem;
+//   border-radius: 24px;
+  border: none;
+  font-size: 1.75rem;
+  outline: none;
+  background: white;
+
+}
+
+input.chat-input:focus {
+    border-bottom: none;
+}
+
+input.chat-input:hover {
+    background: #00000009;
+}
+
+.send-button {
+//   position: absolute;
+//   right: 0.5rem;
+//   bottom: 0.5rem;
+//   width: 2.5rem;
+//   height: 2.5rem;
+  padding: 1rem;
+  border-radius: 9999px;
+  background: #E5E59B;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 200ms;
+  
+}
+
+.send-button:hover {
+  background: #E2E100;
+}
+
+.arrow-icon {
+  width: 2rem;
+  height: 2rem;
+//   transform: rotate(-45deg);
 }
