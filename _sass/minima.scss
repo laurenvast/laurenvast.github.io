@@ -2230,6 +2230,7 @@ ul.arrowlist{
   display: flex;
   flex-direction: column;
   position: relative;
+    // isolation: isolate;
 
 }
 
@@ -2266,12 +2267,16 @@ ul.arrowlist{
   padding-right: 2rem;
   padding-top: 2rem;
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+
 }
 
 
 .message-wrapper {
   margin-bottom: 1.5rem;
   scroll-margin-top: 1.5rem;
+  overflow: visible;
+
 }
 
 .bot-message {
@@ -2301,20 +2306,35 @@ ul.arrowlist{
 .message-text {
   font-size: 1.75rem;
   line-height: 1.5;
+  user-select: none;
+
+}
+.message-text.typing-complete {
+    user-select: text;
 }
 
 .options-container {
   margin-left: 32px;
   margin-top: 1.5rem;
-  display: flex;
+//   display: flex;
   flex-direction: column;
     border-radius: 24px;
     border: solid 1px #0000001f;
 overflow: hidden;
+display: none;
+    opacity: 0;
+    animation: fadeIn 0.3s ease forwards;
 
     button + button {
         border-top: solid 1px #0000001f;
 
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        display: flex;
+        opacity: 1;
     }
 }
 
@@ -2339,10 +2359,21 @@ overflow: hidden;
 }
 
 .option-button.selected {
-  background: transparent;
+  background: #00000015;
   cursor: default;
-  color: #1a1a1a;
+  color: rgba(0, 0, 0, 0.8);
   font-weight: normal;
+}
+
+.option-button.disabled {
+    opacity: 0.7;
+    background: #f5f5f5;
+    cursor: default !important;
+    pointer-events: none;
+}
+
+.option-button.disabled:hover {
+    background: #f5f5f5;
 }
 
 .user-message {
@@ -2495,4 +2526,67 @@ input.chat-input:hover {
     opacity: 0.7;
     cursor: not-allowed;
     background: #f0f0f0;
+}
+
+
+.messages-container {
+    position: relative;
+    overscroll-behavior: contain; /* Prevents scroll chaining */
+}
+
+.chat-messages {
+    position: relative;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+}
+
+.typing-indicator {
+    margin: 1rem 0 1rem 4rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.typing-indicator.visible {
+    opacity: 1;
+}
+
+/* Add message states */
+.message-wrapper {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: messageAppear 0.3s ease forwards;
+}
+
+@keyframes messageAppear {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Add focus states for accessibility */
+.chat-input:focus {
+    outline: 2px solid #E2E100;
+    outline-offset: -2px;
+}
+
+.option-button:focus {
+    outline: 2px solid #E2E100;
+    outline-offset: -2px;
+}
+
+/* Add loading states */
+.send-button.loading {
+    background: #f0f0f0;
+    pointer-events: none;
+}
+
+.send-button.loading .arrow-icon {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    50% {
+        opacity: 0.5;
+    }
 }

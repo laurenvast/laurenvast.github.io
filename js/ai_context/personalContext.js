@@ -232,6 +232,11 @@ project: Smart(Creepy) Ears
 Show your emotion with your ear.
 Physical, Arduino, Kinetics
 
+
+about Lauren's AI assistant:
+Lauren build it with Claude and Anthropic API. This is her first time learning to build with LLM. it's been fun, she has so much ideas for how to iterate it further. This learning process makes her rethink how to work with AI and develop skills to best leverage AI in her workflow.
+This AI assistant only use Lauren's resume, case studies, reference and peer reviews from previous colleagues as only sourec for the output. The AI has been properly instructed to avoid hallucinations. 
+
 `;
 
 export default PERSONAL_CONTEXT;
