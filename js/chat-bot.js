@@ -1,24 +1,26 @@
 // import ACONFIG from '../_protected/config.js';
 import PERSONAL_CONTEXT from './ai_context/personalContext.js';
-// import responses, { initialOptions } from './ai_context/responses.js';
-
+import responses, { initialOptions } from './ai_context/responses.js';
 
 class ChatInterface {
     constructor() {
-        this.messagesContainer = document.getElementById('chatMessages');
-        this.chatForm = document.getElementById('chatForm');
-        this.chatInput = document.getElementById('chatInput');
+        // Update selectors to match your HTML structure
+        this.chatInterface = document.querySelector('.chat-interface');
+        this.messagesContainer = document.querySelector('.messages-container');
+        this.chatMessages = document.getElementById('chatMessages');
+        this.chatForm = document.querySelector('.input-form');
+        this.chatInput = document.querySelector('.chat-input');
+        this.sendButton = document.querySelector('.send-button');
+        
         this.messageCount = 0;
         this.selectedOptions = new Set();
         this.isProcessing = false;
         this.conversationHistory = [];
 
-        if (!this.messagesContainer || !this.chatForm || !this.chatInput) {
+        if (!this.chatMessages || !this.chatForm || !this.chatInput) {
             console.error('Required DOM elements not found');
             return;
         }
-
-        
 
         this.initialize();
         this.setupEventListeners();
@@ -33,32 +35,30 @@ class ChatInterface {
             <span></span>
             <span></span>
         `;
-        
-        // Insert before the options container if it exists, otherwise append to messages
-        const firstOptionsContainer = this.messagesContainer.querySelector('.options-container');
-        if (firstOptionsContainer) {
-            firstOptionsContainer.parentNode.insertBefore(this.loadingIndicator, firstOptionsContainer);
-        } else {
-            this.messagesContainer.appendChild(this.loadingIndicator);
-        }
+        this.chatMessages.appendChild(this.loadingIndicator);
     }
 
     showLoading() {
         this.loadingIndicator.classList.add('visible');
         this.scrollToBottom();
+        if (this.sendButton) {
+            this.sendButton.disabled = true;
+        }
     }
 
     hideLoading() {
         this.loadingIndicator.classList.remove('visible');
+        if (this.sendButton) {
+            this.sendButton.disabled = false;
+        }
     }
 
     scrollToBottom() {
         requestAnimationFrame(() => {
-            const container = this.messagesContainer;
-            container.scrollTop = container.scrollHeight;
+            this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
         });
     }
-    
+
     initialize() {
         const initialMessage = {
             type: 'bot',
@@ -112,7 +112,7 @@ class ChatInterface {
             `;
         }
 
-        this.messagesContainer.appendChild(messageElement);
+        this.chatMessages.appendChild(messageElement);
 
         if (message.options) {
             messageElement.querySelectorAll('.option-button').forEach(button => {
@@ -142,6 +142,7 @@ class ChatInterface {
         try {
             this.isProcessing = true;
             button.disabled = true;
+            this.showLoading();
             
             const { response, followUps } = await this.getAIResponse(option);
             
@@ -160,6 +161,7 @@ class ChatInterface {
         } finally {
             this.isProcessing = false;
             button.disabled = false;
+            this.hideLoading();
         }
     }
 
@@ -176,6 +178,7 @@ class ChatInterface {
         try {
             this.isProcessing = true;
             this.chatInput.disabled = true;
+            this.showLoading();
             
             const { response, followUps } = await this.getAIResponse(userInput);
             
@@ -194,6 +197,7 @@ class ChatInterface {
         } finally {
             this.isProcessing = false;
             this.chatInput.disabled = false;
+            this.hideLoading();
             this.chatInput.focus();
         }
     }
@@ -249,7 +253,6 @@ class ChatInterface {
             const data = await response.json();
             const aiResponse = data.content[0].text;
 
-            // Parse the response to extract main content and follow-ups
             const responseMatch = aiResponse.match(/\[RESPONSE\]([\s\S]*?)\[\/RESPONSE\]/);
             const followupsMatch = aiResponse.match(/\[FOLLOWUPS\]([\s\S]*?)\[\/FOLLOWUPS\]/);
 
