@@ -2224,10 +2224,7 @@ ul.arrowlist{
 // AI chat
 .chat-interface {
   width: 100%;
-//   max-width: 40rem;
   margin: 0 auto;
-//   background: white;
-//   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
   overflow: hidden;
   height: 500px;
   display: flex;
@@ -2247,9 +2244,6 @@ ul.arrowlist{
     flex-direction: column;
     padding: 0 2rem;
     padding-right: 0;
-
-    // display: flex;
-    // flex-direction: column;
 }
 
 
@@ -2271,11 +2265,7 @@ ul.arrowlist{
   overflow-y: auto;
   padding-right: 2rem;
   padding-top: 2rem;
-
-//   min-height: 0;
   scroll-behavior: smooth;
-
-//   transition: width 300ms ease;
 }
 
 
@@ -2306,9 +2296,6 @@ ul.arrowlist{
 
 .message-content {
   flex: 1;
-//   background: white;
-//   border-radius: 24px;
-//   padding: 1rem;
 }
 
 .message-text {
@@ -2335,10 +2322,8 @@ overflow: hidden;
   width: 100%;
   text-align: left;
   padding: 1rem;
-//   border-radius: 24px;
   background: white;
     border:none;
-//   border-bottom: solid 1px #0000001f;
   cursor: pointer;
   transition: all 200ms;
   display: flex;
@@ -2350,8 +2335,6 @@ overflow: hidden;
 }
 
 .option-button:not(.selected):hover {
-//   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-//   transform: translateY(-2px);
     background: #E7F7A4;
 }
 
@@ -2379,7 +2362,6 @@ overflow: hidden;
 
 .input-container {
   flex-shrink: 0;
-//   padding: 1.5rem;
   background: white;
   border-radius: 32px;
   overflow: hidden;
@@ -2397,7 +2379,6 @@ overflow: hidden;
 .chat-input {
   width: 100%;
   padding: 1.5rem 2rem;
-//   border-radius: 24px;
   border: none;
   font-size: 1.75rem;
   outline: none;
@@ -2414,11 +2395,6 @@ input.chat-input:hover {
 }
 
 .send-button {
-//   position: absolute;
-//   right: 0.5rem;
-//   bottom: 0.5rem;
-//   width: 2.5rem;
-//   height: 2.5rem;
   padding: 1rem;
   border-radius: 9999px;
   background: #E5E59B;
@@ -2438,5 +2414,85 @@ input.chat-input:hover {
 .arrow-icon {
   width: 2rem;
   height: 2rem;
-//   transform: rotate(-45deg);
+}
+
+
+
+  /* New loading indicator styles that match your theme */
+  .typing-indicator {
+    display: none;
+    padding: 1.5rem 0;
+    margin-left: 4rem; /* Aligns with your message content */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.typing-indicator.visible {
+    display: flex;
+    opacity: 1;
+}
+
+.typing-indicator span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 8px;
+    background-color: #e88073; /* Matches your avatar color */
+    border-radius: 50%;
+    opacity: 0.4;
+    animation: typing 1s infinite;
+}
+
+.typing-indicator span:nth-child(1) { 
+    animation-delay: 0s; 
+}
+
+.typing-indicator span:nth-child(2) { 
+    animation-delay: 0.2s;
+    background-color: #e9947a; /* Slightly lighter shade */
+}
+
+.typing-indicator span:nth-child(3) { 
+    animation-delay: 0.4s;
+    background-color: #eaa891; /* Even lighter shade */
+}
+
+@keyframes typing {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 0.4;
+    }
+    50% {
+        transform: translateY(-8px);
+        opacity: 0.8;
+    }
+}
+
+/* State styles for disabled inputs */
+.chat-input:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.option-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    background: #f5f5f5;
+}
+
+/* Enhanced transition for options */
+.option-button {
+    /* ... your existing styles ... */
+    transition: all 0.2s ease-in-out;
+}
+
+.option-button:not(.selected):active {
+    transform: scale(0.98);
+}
+
+/* Loading state for send button */
+.send-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    background: #f0f0f0;
 }
