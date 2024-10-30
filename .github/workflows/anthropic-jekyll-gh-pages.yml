@@ -18,9 +18,9 @@ jobs:
 
       - name: Create config.js
         run: |
-          echo 'export const CONFIG = { ANTHROPIC_API_KEY: "${{ secrets.ANTHROPIC_API_KEY }}" };' > src/config/config.js
+          echo 'export const CONFIG = { ANTHROPIC_API_KEY: "${{ secrets.ANTHROPIC_API_KEY }}" };' > js/config.js
 
       - name: List directory contents to verify
         run: |
-          ls -la src/config/
-          cat src/config/config.js
+          ls -la js/
+          cat js/config.js
