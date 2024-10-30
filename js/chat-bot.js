@@ -576,7 +576,7 @@ class ChatInterface {
         } else if (error.message.includes('429')) {
             errorMessage = "I'm receiving too many requests. Please wait a moment and try again.";
         } else if (error.message.includes('401')) {
-            errorMessage = "There seems to be an authentication issue. Please contact support.";
+            errorMessage = "There seems to be an authentication issue. Lauren would appreciate it if you let her know.";
         }
 
         this.hideLoading();
@@ -649,7 +649,8 @@ class ChatInterface {
                     - Start with a relevant emoji that matches the question's topic and provides visual context to the question
                     - Be concise (under 9 words)
                     - be centered around Lauren
-                    the emojis for the 4 followups should be all different from each other
+                    - address Lauren as third person perspective
+                    the emojis for all the followups should be all different from each other
     
                     Example followups:
                     🎯 What specific goals drove this project forward?
