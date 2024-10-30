@@ -435,6 +435,18 @@ class ChatInterface {
 
         if (this.selectedOptions.has(optionKey)) return;
 
+
+        // Track first message if chat hasn't started
+        if (!this.analyticsConfig.chatStarted) {
+            this.analyticsConfig.chatStarted = true;
+            this.analyticsConfig.sessionStartTime = Date.now();
+            this.trackEvent('chat_start', {
+                event_category: 'Chat',
+                event_label: 'First option clicked',
+                first_message: userInput.slice(0, 100) // First 100 chars for privacy
+            });
+        }
+
          // Track option click
          this.trackEvent('option_click', {
             event_category: 'Chat',
