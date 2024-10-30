@@ -1749,6 +1749,11 @@ fieldset {
 ==================================================*/
 
 @media (max-width: 991px) {
+
+    h1 {
+        font-size: 76px;
+        /*line-height: 70px;*/
+    }
     .size-h3 {
         font-size: 24px;
     }
@@ -2212,4 +2217,376 @@ ul.arrowlist{
 .wave.pre-footer{
     background: white;
     fill: $main-color;
+}
+
+
+
+// AI chat
+.chat-interface {
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+    // isolation: isolate;
+
+}
+
+.messages-container {
+    border-radius: 32px;
+    overflow: hidden;
+    flex: 1;
+    margin-bottom: 1rem;
+    min-height: 0;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    padding: 0 2rem;
+    padding-right: 0;
+}
+
+
+   
+.messages-container:before {
+    content:'';
+    width:100%;
+    height: 3rem;    
+    position:absolute;
+    left:0;
+    top:0;
+    background:linear-gradient(white, transparent);
+    border-radius: 32px 32px 0 0;
+  } 
+  
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 2rem;
+  padding-top: 2rem;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+
+}
+
+
+.message-wrapper {
+  margin-bottom: 1.5rem;
+  scroll-margin-top: 1.5rem;
+  overflow: visible;
+
+}
+
+.bot-message {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  background: #e88073;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.message-content {
+  flex: 1;
+}
+
+.message-text {
+  font-size: 1.75rem;
+  line-height: 1.5;
+  user-select: none;
+
+}
+.message-text.typing-complete {
+    user-select: text;
+}
+
+.options-container {
+  margin-left: 32px;
+  margin-top: 1.5rem;
+//   display: flex;
+  flex-direction: column;
+    border-radius: 24px;
+    border: solid 1px #0000001f;
+overflow: hidden;
+display: none;
+    opacity: 0;
+    animation: fadeIn 0.3s ease forwards;
+
+    button + button {
+        border-top: solid 1px #0000001f;
+
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        display: flex;
+        opacity: 1;
+    }
+}
+
+.option-button {
+  width: 100%;
+  text-align: left;
+  padding: 1rem;
+  background: white;
+    border:none;
+  cursor: pointer;
+  transition: all 200ms;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.75rem;
+  line-height: 1.5em;
+
+}
+
+.option-button:not(.selected):hover {
+    background: #E7F7A4;
+}
+
+.option-button.selected {
+  background: #00000015;
+  cursor: default;
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: normal;
+}
+
+.option-button.disabled {
+    opacity: 0.7;
+    background: #f5f5f5;
+    cursor: default !important;
+    pointer-events: none;
+}
+
+.option-button.disabled:hover {
+    background: #f5f5f5;
+}
+
+.user-message {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1.5rem;
+}
+
+.user-content {
+  background: #E5E59B;
+  border-radius: 24px;
+  padding: 0.75rem 1.25rem;
+  max-width: 80%;
+  font-size: 1.75rem;
+  line-height: 1.75em;
+}
+
+.input-container {
+  flex-shrink: 0;
+  background: white;
+  border-radius: 32px;
+  overflow: hidden;
+
+}
+
+.input-form {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-right: 1rem;
+}
+
+.chat-input {
+  width: 100%;
+  padding: 1.5rem 2rem;
+  border: none;
+  font-size: 1.75rem;
+  outline: none;
+  background: white;
+
+}
+
+input.chat-input:focus {
+    border-bottom: none;
+}
+
+input.chat-input:hover {
+    background: #00000009;
+}
+
+.send-button {
+  padding: 1rem;
+  border-radius: 9999px;
+  background: #E5E59B;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 200ms;
+  
+}
+
+.send-button:hover {
+  background: #E2E100;
+}
+
+.arrow-icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+
+
+  /* New loading indicator styles that match your theme */
+  .typing-indicator {
+    display: none;
+    padding: 1.5rem 0;
+    margin-left: 4rem; /* Aligns with your message content */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.typing-indicator.visible {
+    display: flex;
+    opacity: 1;
+}
+
+.typing-indicator span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 8px;
+    background-color: #e88073; /* Matches your avatar color */
+    border-radius: 50%;
+    opacity: 0.4;
+    animation: typing 1s infinite;
+}
+
+.typing-indicator span:nth-child(1) { 
+    animation-delay: 0s; 
+}
+
+.typing-indicator span:nth-child(2) { 
+    animation-delay: 0.2s;
+    background-color: #e9947a; /* Slightly lighter shade */
+}
+
+.typing-indicator span:nth-child(3) { 
+    animation-delay: 0.4s;
+    background-color: #eaa891; /* Even lighter shade */
+}
+
+@keyframes typing {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 0.4;
+    }
+    50% {
+        transform: translateY(-8px);
+        opacity: 0.8;
+    }
+}
+
+/* State styles for disabled inputs */
+.chat-input:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.option-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    background: #f5f5f5;
+}
+
+/* Enhanced transition for options */
+.option-button {
+    /* ... your existing styles ... */
+    transition: all 0.2s ease-in-out;
+}
+
+.option-button:not(.selected):active {
+    transform: scale(0.98);
+}
+
+/* Loading state for send button */
+.send-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    background: #f0f0f0;
+}
+
+
+.messages-container {
+    position: relative;
+    overscroll-behavior: contain; /* Prevents scroll chaining */
+}
+
+.chat-messages {
+    position: relative;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+}
+
+.typing-indicator {
+    margin: 1rem 0 1rem 4rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.typing-indicator.visible {
+    opacity: 1;
+}
+
+/* Add message states */
+.message-wrapper {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: messageAppear 0.3s ease forwards;
+}
+
+@keyframes messageAppear {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Add focus states for accessibility */
+.chat-input:focus {
+    outline: 2px solid #E2E100;
+    outline-offset: -2px;
+}
+
+.option-button:focus {
+    outline: 2px solid #E2E100;
+    outline-offset: -2px;
+}
+
+/* Add loading states */
+.send-button.loading {
+    background: #f0f0f0;
+    pointer-events: none;
+}
+
+.send-button.loading .arrow-icon {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    50% {
+        opacity: 0.5;
+    }
 }
