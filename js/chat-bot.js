@@ -1,5 +1,5 @@
 // Import configurations and contexts
-import CONFIG from '../config.js';
+import CONFIG from './ai_context/config.js';
 import PERSONAL_CONTEXT from './ai_context/personalContext.js';
 import responses, { initialOptions } from './ai_context/responses.js';
 
