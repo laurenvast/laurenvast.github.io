@@ -6,6 +6,13 @@ import responses, { initialOptions } from './ai_context/responses.js';
 class ChatInterface {
     
     constructor() {
+
+        this.isProduction = window.location.hostname.includes('github.io');
+        if (this.isProduction && (!window.CONFIG || !window.CONFIG.ANTHROPIC_API_KEY)) {
+            console.error('Production configuration missing');
+            return;
+        }
+
         // Initialize DOM elements
         this.chatInterface = document.querySelector('.chat-interface');
         this.messagesContainer = document.querySelector('.messages-container');
@@ -59,6 +66,13 @@ class ChatInterface {
 
         // Initialize analytics tracking
         this.initializeAnalytics();
+
+        // Verify config exists
+        if (!window.CONFIG || !window.CONFIG.ANTHROPIC_API_KEY) {
+            console.error('API configuration is missing');
+            this.handleError(new Error('Configuration missing'));
+            return;
+        }
     }
 
     initializeAnalytics() {
@@ -556,7 +570,9 @@ class ChatInterface {
     handleError(error) {
         let errorMessage = "I apologize, but I'm having trouble right now.";
         
-        if (error.message.includes('429')) {
+        if (error.message.includes('Configuration missing')) {
+            errorMessage = "Chat service is currently unavailable. Please try again later.";
+        } else if (error.message.includes('429')) {
             errorMessage = "I'm receiving too many requests. Please wait a moment and try again.";
         } else if (error.message.includes('401')) {
             errorMessage = "There seems to be an authentication issue. Please contact support.";
@@ -567,7 +583,7 @@ class ChatInterface {
             this.addMessage({
                 type: 'bot',
                 content: errorMessage,
-                options: initialOptions
+                options: [initialOptions]
             });
         }
     }
@@ -587,7 +603,13 @@ class ChatInterface {
         });
     }
 
+
+
+    
     async getAIResponse(userMessage) {
+        if (!window.CONFIG?.ANTHROPIC_API_KEY) {
+            throw new Error('API configuration is missing');
+        }
         await this.rateLimit();
 
         try {
@@ -595,7 +617,7 @@ class ChatInterface {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'x-api-key': process.env.ANTHROPIC_API_KEY,//CONFIG.ANTHROPIC_API_KEY,
+                    'x-api-key': window.CONFIG.ANTHROPIC_API_KEY,
                     'anthropic-version': '2023-06-01',
                     'anthropic-dangerous-direct-browser-access': 'true'
                 },
