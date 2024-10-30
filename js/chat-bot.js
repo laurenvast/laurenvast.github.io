@@ -442,16 +442,16 @@ class ChatInterface {
             this.analyticsConfig.sessionStartTime = Date.now();
             this.trackEvent('chat_start', {
                 event_category: 'Chat',
-                event_label: 'First option clicked',
-                option_text: option,
+                event_label: 'First Sent: followup option',
+                first_followup_text: option,
             });
         }
 
          // Track option click
-         this.trackEvent('option_click', {
+         this.trackEvent('followup_pick', {
             event_category: 'Chat',
             event_label: 'Follow-up Selected',
-            option_text: option,
+            followup_text: option,
             message_id: messageId,
             session_duration: Date.now() - this.analyticsConfig.sessionStartTime
         });
@@ -469,14 +469,14 @@ class ChatInterface {
              this.showLoading();
             
             const { response, followUps } = await this.getAIResponse(option);
-            
 
+            console.log(followUps);
             // Track AI response
             this.trackEvent('ai_response', {
                 event_category: 'Chat',
                 event_label: 'AI Response',
-                response_length: response.length,
-                has_followups: followUps.length > 0
+                response: response,
+                followups: followUps
             });
 
             this.hideLoading();
@@ -491,7 +491,7 @@ class ChatInterface {
 
             this.trackEvent('chat_error', {
                 event_category: 'Chat',
-                event_label: 'Option Click Error',
+                event_label: 'Followup Pick Error',
                 error_type: error.name,
                 error_message: error.message
             })
@@ -515,7 +515,7 @@ class ChatInterface {
             this.analyticsConfig.sessionStartTime = Date.now();
             this.trackEvent('chat_start', {
                 event_category: 'Chat',
-                event_label: 'First Message Sent',
+                event_label: 'First Sent: text input',
                 first_message: userInput.slice(0, 100) // First 100 chars for privacy
             });
         }
@@ -545,8 +545,8 @@ class ChatInterface {
             this.trackEvent('ai_response', {
                 event_category: 'Chat',
                 event_label: 'AI Response',
-                response_length: response.length,
-                has_followups: followUps.length > 0
+                response: response,
+                followups: followUps,
             });
 
             this.hideLoading();
