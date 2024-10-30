@@ -26,9 +26,9 @@ jobs:
         run: |
           bundle install
 
-      - name: Create _config.yml with API key
+      - name: Create config.js with API key
         run: |
-          echo "anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}" >> _config.yml
+          echo "anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}" >> config.js
 
       - name: Build site
         run: |
