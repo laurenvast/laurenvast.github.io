@@ -617,7 +617,7 @@ class ChatInterface {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'x-api-key': window.CONFIG.ANTHROPIC_API_KEY,
+                    'x-api-key': {{ site.anthropic_api_key }},
                     'anthropic-version': '2023-06-01',
                     'anthropic-dangerous-direct-browser-access': 'true'
                 },
