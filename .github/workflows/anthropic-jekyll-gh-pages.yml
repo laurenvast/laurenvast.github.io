@@ -13,14 +13,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Create config directory if it doesn't exist
+        run: mkdir -p src/config
+
       - name: Create config.js
         run: |
-          echo "const CONFIG = { ANTHROPIC_API_KEY: '${{ secrets.ANTHROPIC_API_KEY }}' };" > config.js
-          
-      - name: Commit and push config.js
+          echo 'export const CONFIG = { ANTHROPIC_API_KEY: "${{ secrets.ANTHROPIC_API_KEY }}" };' > src/config/config.js
+
+      - name: List directory contents to verify
         run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add config.js
-          git commit -m "Update config.js with API key" || exit 0
-          git push
+          ls -la src/config/
+          cat src/config/config.js
