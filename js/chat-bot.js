@@ -35,7 +35,7 @@ class ChatInterface {
         // Configuration
         this.MAX_REQUESTS_PER_MINUTE = 5;
         this.MAX_MESSAGES = 10;
-        this.typingSpeed = 25; // ms per character
+        this.typingSpeed = 15; // ms per character
         this.MAX_MESSAGE_LENGTH = 500;
         this.MIN_MESSAGE_LENGTH = 2;
         
@@ -436,14 +436,14 @@ class ChatInterface {
         if (this.selectedOptions.has(optionKey)) return;
 
 
-        // Track first message if chat hasn't started
+        // Track first option if chat hasn't started
         if (!this.analyticsConfig.chatStarted) {
             this.analyticsConfig.chatStarted = true;
             this.analyticsConfig.sessionStartTime = Date.now();
             this.trackEvent('chat_start', {
                 event_category: 'Chat',
                 event_label: 'First option clicked',
-                first_message: userInput.slice(0, 100) // First 100 chars for privacy
+                option_text: option,
             });
         }
 
