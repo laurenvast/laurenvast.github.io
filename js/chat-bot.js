@@ -470,6 +470,15 @@ class ChatInterface {
             
             const { response, followUps } = await this.getAIResponse(option);
             
+
+            // Track AI response
+            this.trackEvent('ai_response', {
+                event_category: 'Chat',
+                event_label: 'AI Response',
+                response_length: response.length,
+                has_followups: followUps.length > 0
+            });
+
             this.hideLoading();
             this.addMessage({
                 type: 'bot',
