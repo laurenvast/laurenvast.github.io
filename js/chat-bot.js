@@ -1,14 +1,15 @@
 // Import configurations and contexts
-// import CONFIG from './ai_context/config.js';
+import CONFIG from '../config.js';
 import PERSONAL_CONTEXT from './ai_context/personalContext.js';
 import responses, { initialOptions } from './ai_context/responses.js';
+
 
 class ChatInterface {
     
     constructor() {
 
         this.isProduction = window.location.hostname.includes('github.io');
-        if (this.isProduction && (!window.CONFIG || !window.CONFIG.ANTHROPIC_API_KEY)) {
+        if (this.isProduction && (!CONFIG || !CONFIG.ANTHROPIC_API_KEY)) {
             console.error('Production configuration missing');
             return;
         }
@@ -68,7 +69,7 @@ class ChatInterface {
         this.initializeAnalytics();
 
         // Verify config exists
-        if (!window.CONFIG || !window.CONFIG.ANTHROPIC_API_KEY) {
+        if (!CONFIG || !CONFIG.ANTHROPIC_API_KEY) {
             console.error('API configuration is missing');
             this.handleError(new Error('Configuration missing'));
             return;
@@ -607,7 +608,7 @@ class ChatInterface {
 
     
     async getAIResponse(userMessage) {
-        if (!window.CONFIG?.ANTHROPIC_API_KEY) {
+        if (!CONFIG?.ANTHROPIC_API_KEY) {
             throw new Error('API configuration is missing');
         }
         await this.rateLimit();
@@ -617,7 +618,7 @@ class ChatInterface {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'x-api-key': {{ site.anthropic_api_key }},
+                    'x-api-key': CONFIG?.ANTHROPIC_API_KEY,
                     'anthropic-version': '2023-06-01',
                     'anthropic-dangerous-direct-browser-access': 'true'
                 },
