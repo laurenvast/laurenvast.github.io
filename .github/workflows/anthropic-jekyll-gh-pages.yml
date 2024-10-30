@@ -1,4 +1,4 @@
-name: Build and Deploy Jekyll site
+name: Create Config File
 
 on:
   push:
@@ -6,39 +6,21 @@ on:
       - main  # or master, depending on your default branch
 
 jobs:
-  build-and-deploy:
+  create-config:
     runs-on: ubuntu-latest
-    
-    env:
-      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
     
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.2'
-          bundler-cache: true
-
-      - name: Install dependencies
+      - name: Create config.js
         run: |
-          bundle install
-
-      - name: Create config.js with API key
+          echo "const CONFIG = { ANTHROPIC_API_KEY: '${{ secrets.ANTHROPIC_API_KEY }}' };" > config.js
+          
+      - name: Commit and push config.js
         run: |
-          echo "const CONFIG = {anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}};export default CONFIG;" >> config.js
-
-      - name: Build site
-        run: |
-          JEKYLL_ENV=production bundle exec jekyll build
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
-          publish_branch: gh-pages
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add config.js
+          git commit -m "Update config.js with API key" || exit 0
+          git push
