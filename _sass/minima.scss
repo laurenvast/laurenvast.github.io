@@ -895,11 +895,6 @@ a.active {
         }
     }
 
-    h2+p {
-        color: $text-color-light;
-        margin-bottom: 50px;
-
-    }
 
     p>a {
         color: $main-color;
@@ -2249,6 +2244,11 @@ a.portfolio_item {
 }
 
 
+.section h2+p {
+    color: $text-color-light;
+    // margin-bottom: 50px;
+
+}
 
 .portfolio_item>.clearfix {
     padding: 1em 1.5em;
