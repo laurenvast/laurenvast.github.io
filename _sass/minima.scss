@@ -1318,7 +1318,15 @@ a.active {
     &.ai-project {
         img {
             border-radius: $round-corner;
+            transition: transform ease 200ms;
         }
+
+        &:hover {
+            img {
+                transform: scale(1.05);
+            }
+        }
+
     }
 }
 
