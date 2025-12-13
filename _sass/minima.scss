@@ -325,7 +325,8 @@ a {
 .title {
     color: $main-color;
     font-family: 'Signika', serif;
-    font-size: 1.25em;
+    font-size: 1.43em;
+    letter-spacing: .05em;
 }
 
 .description {
@@ -653,8 +654,8 @@ nav li a {
 }
 
 .scroll-nav {
-    background-color: white;
-    // backdrop-filter: blur(1em);
+    // background-color: white;
+    backdrop-filter: blur(.75em);
     // border-bottom: 1px solid rgba($main-color, .1);
     /*transition: all 500ms ease;*/
     // margin: 1em 2em;
@@ -1928,7 +1929,7 @@ input {
 @media (max-width: 991px) {
 
     h1 {
-        font-size: 76px;
+        // font-size: 76px;
         /*line-height: 70px;*/
     }
 
@@ -1972,8 +1973,12 @@ input {
         height: 100vh;
     }*/
     h1 {
-        font-size: 76px;
+        font-size: 4em;
         /*line-height: 70px;*/
+    }
+
+    .title {
+        font-size: 1.25em;
     }
 
     .timeline-event-copy {
@@ -2022,9 +2027,14 @@ input {
 
 @media (max-width: 500px) {
     h1 {
-        font-size: 54px;
+        font-size: 3.5em;
         /*line-height: 70px;*/
     }
+
+    .title {
+        font-size: 1em;
+    }
+
 
     h3 {
         font-size: 21px;

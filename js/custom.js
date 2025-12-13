@@ -41,34 +41,34 @@ $(window).load(function () {
 var wawes = document.querySelectorAll("div.wave");
 
 window.addEventListener(
-  "scroll",
-      () => {
-    wawes.forEach(element => {
-        var position = window.pageYOffset;
+    "scroll",
+    () => {
+        wawes.forEach(element => {
+            var position = window.pageYOffset;
 
-        var topDistance = element.offsetTop-position;
-        if (topDistance < window.innerHeight) {
+            var topDistance = element.offsetTop - position;
+            if (topDistance < window.innerHeight) {
                 console.log(topDistance / window.innerHeight);
-            element.style.setProperty(
-          "--scroll",( topDistance / window.innerHeight))
-        }
+                element.style.setProperty(
+                    "--scroll", (topDistance / window.innerHeight))
+            }
 
 
 
+        })
     })
-})
 
 
 // var slideIndex = 1;
 // showSlides(slideIndex);
 
 function plusSlides(n) {
-      var scrollwrap = document.querySelector(".scrollwrap");
+    var scrollwrap = document.querySelector(".scrollwrap");
 
-  // showSlides(slideIndex += n);
+    // showSlides(slideIndex += n);
     scrollwrap.scrollBy({
         top: 0,
-        left: n*100,
+        left: n * 100,
         behavior: 'smooth'
     });
 
@@ -116,16 +116,16 @@ $(document).ready(function () {
 
     // scroll menu
     var sections = $('.section'),
-    nav = $('.navbar-fixed-top,footer,.postnav'),
-    nav_height = nav.outerHeight(),
-    window_height = window.innerHeight - nav_height;
+        nav = $('.navbar-fixed-top,footer,.postnav'),
+        nav_height = nav.outerHeight(),
+        window_height = window.innerHeight - nav_height;
 
     $(window).on('scroll', function () {
         var cur_pos = $(this).scrollTop();
 
         sections.each(function () {
             var top = $(this).offset().top - nav_height,
-            bottom = top + $(this).outerHeight();
+                bottom = top + $(this).outerHeight();
 
             if (cur_pos >= top && cur_pos <= bottom) {
                 nav.find('a').removeClass('active');
@@ -162,13 +162,27 @@ $(document).ready(function () {
 
     nav.find('a').on('click', function () {
         var $el = $(this),
-        id = $el.attr('href');
+            id = $el.attr('href');
 
         $('html, body').animate({
             scrollTop: $(id).offset().top - nav_height + 2
         }, 600);
 
         return false;
+    });
+
+    // Smooth scrolling for hero buttons
+    $('.herobtns a').on('click', function () {
+        var $el = $(this),
+            id = $el.attr('href');
+
+        if (id && id.startsWith('#')) {
+            $('html, body').animate({
+                scrollTop: $(id).offset().top - nav_height + 2
+            }, 600);
+
+            return false;
+        }
     });
 
 
@@ -244,23 +258,23 @@ $(document).ready(function () {
 
     wrap.on("mousemove", function (e) {
 
-      var target = e.target;
+        var target = e.target;
 
-      if (target.classList.contains("portfolio_item")) {
+        if (target.classList.contains("portfolio_item")) {
 
-        var ax = -(e.clientX - target.getBoundingClientRect().left - target.offsetWidth / 2 ) / 10;
+            var ax = -(e.clientX - target.getBoundingClientRect().left - target.offsetWidth / 2) / 10;
 
-        var ay = (e.clientY - target.getBoundingClientRect().top - target.offsetHeight / 2) / 20;
+            var ay = (e.clientY - target.getBoundingClientRect().top - target.offsetHeight / 2) / 20;
 
-        target.style.transform = "rotateY(" + ax + "deg) rotateX(" + ay + "deg)";
-        target.style.transition = "none";
+            target.style.transform = "rotateY(" + ax + "deg) rotateX(" + ay + "deg)";
+            target.style.transition = "none";
 
 
-        $(this).children().children().on("mouseleave", function (e) {
-          target.style.transform = "rotateZ(0)";
-          target.style.transition = "transform 200ms ease";
-      });
-    }
+            $(this).children().children().on("mouseleave", function (e) {
+                target.style.transform = "rotateZ(0)";
+                target.style.transition = "transform 200ms ease";
+            });
+        }
     });
 
 
