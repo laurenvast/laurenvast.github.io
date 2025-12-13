@@ -12,7 +12,7 @@ var cube = function (p) {
   }
 
   p.draw = function () {
-    p.background(238, 248, 194);
+    p.background(240, 248, 222);
 
     var x, y, l, m, mx, my, x1, x2, x3, x4, y1, y2, y3, y4, y5, y6;
 

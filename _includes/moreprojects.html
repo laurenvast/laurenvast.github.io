@@ -1,62 +1,59 @@
-
 {%- if page.category -%}
-    <div class="wave pre-more-code">
-      <svg width="200%" height="20px">
-       <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-wave-pre-more-code)" />
-      </svg>
+<div class="wave pre-more-code">
+  <svg>
+    <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-wave-pre-more-code)" />
+  </svg>
 </div>
 <div class="section" id="moreproject" style="background: #9DF1C5;">
-    {%- else -%}
-        <div class="wave pre-more-design">
-      <svg width="200%" height="20px">
-       <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-wave-pre-more-design)" />
-      </svg>
-</div>
-<div class="section" id="moreproject" style="background: #F58E82;">
+  {%- else -%}
+  <div class="wave pre-more-design">
+    <svg>
+      <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-wave-pre-more-design)" />
+    </svg>
+  </div>
+  <div class="section" id="moreproject">
 
-{%- endif -%}
-  <div class="container">
-    <div class="col-md-12">
-      <div class="h-50"></div>
+    {%- endif -%}
+    <div class="container">
+      <div class="col-md-12">
+        <div class="h-50"></div>
 
-{%- if page.category -%}
-      <h2>More technologist work<span class="blink">_</span></h2> 
-{%- else -%}
-      <h2>More design work<span class="blink">_</span></h2> 
+        {%- if page.category -%}
+        <h2>More technologist work<span class="blink">.</span></h2>
+        {%- else -%}
+        <h2>More design work<span class="blink">.</span></h2>
 
-{%- endif -%}
+        {%- endif -%}
 
-    </div>
-       
-    <div class="main-container portfolio-inner clearfix">
+      </div>
 
-                                 <div class="h-20"></div>
+      <div class="main-container portfolio-inner clearfix">
+
+        <div class="h-20"></div>
         <div class="portfolio-div">
-           <div class="portfolio">
+          <div class="portfolio">
 
 
-{%- if page.category -%}
-                  {%- include portfolio_creative.html -%}
-{%- else -%}
-                  {%- include portfolio_product.html -%}
-{%- endif -%}
+            {%- if page.category -%}
+            {%- include portfolio_creative.html -%}
+            {%- else -%}
+            {%- include portfolio_product.html -%}
+            {%- endif -%}
 
 
 
           </div>
-         <!-- portfolio -->
+          <!-- portfolio -->
         </div>
-      <!-- end portfolio div -->
+        <!-- end portfolio div -->
+      </div>
+      <!-- end main container -->
     </div>
-    <!-- end main container -->
   </div>
-</div>
 
 
-{%- if page.category -%}
+  {%- if page.category -%}
 
-{%- else -%}
+  {%- else -%}
 
-{%- endif -%}
-
-
+  {%- endif -%}

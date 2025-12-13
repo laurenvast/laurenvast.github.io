@@ -1,4 +1,4 @@
-$main-color: hsl(357, 60%, 54%);
+$main-color: #D45D5D;
 $main-light: hsl(357, 62%, 97%);
 $main-dark: hsl(357, 62%, 32%);
 /*$main-color: hsl(7, 72%, 51%);*/
@@ -6,17 +6,17 @@ $main-dark: hsl(357, 62%, 32%);
 $main-shadow: rgba($main-color, .3);
 $main-bg-light: rgba($main-color, .1);
 
-$text-color-light: rgba(0, 0, 0, 0.68);
+$text-color-light: rgba(0, 0, 0, 0.62);
 $text-color-dark: rgb(0, 0, 0);
 $text-color-lightest: rgba(0, 0, 0, .48);
 
 $round-corner: 4rem;
 
-$background-color-yellow: #EEF8C2;
-$background-color-purple: #C9C1F0;
-$background-color-coral: #F58E82;
-$background-color-teal: #9DF1C5;
-$background-color-grey: #EEECE8;
+$background-color-yellow: #F0F8DE;
+$background-color-purple: #E0DEFF;
+$background-color-coral: #FCA5A5;
+$background-color-teal: #D1FAE5;
+$background-color-grey: #f9fafb;
 
 
 /* Table of Content
@@ -44,7 +44,7 @@ h1 {
     line-height: 1.3;
     letter-spacing: -.02em;
     margin-bottom: 29px;
-    font-weight: 700;
+    font-weight: 600;
 
 }
 
@@ -325,7 +325,7 @@ a {
 .title {
     color: $main-color;
     font-family: 'Signika', serif;
-    font-size: 1.43em;
+    font-size: 1.4em;
     letter-spacing: .05em;
 }
 
@@ -374,10 +374,11 @@ a {
 
     .secondary {
         padding: .25em 1em;
-        box-shadow: inset $main-shadow 0 0 0 1px;
+        // box-shadow: inset $main-shadow 0 0 0 1px;
         border-radius: 1.5em;
         color: $text-color-light;
         margin-bottom: 0;
+        background: white;
 
         &:hover {
             background: $main-bg-light;
@@ -842,15 +843,25 @@ a.active {
         margin-bottom: 10px;
         display: flex;
         transition: all ease-in-out 500ms;
-        box-shadow: inset #ededed 0 0 50px 20px;
+        box-shadow: inset $background-color-grey 0 0 50px 20px;
         // background-position: top !important;
+        padding: 1em;
+        max-width: 24em;
+
+        h3 {
+            font-family: 'Signika', serif;
+            font-size: 1.2em;
+        }
 
         .card-excerpt {
-            color: $text-color-light;
-            font-size: 14px;
+            color: $text-color-lightest;
+            font-size: .725em;
             font-weight: 500;
             // letter-spacing:  0.38px;
-            line-height: 20px;
+            line-height: 1.25em;
+            border-left: 2px solid $main-bg-light;
+            padding: 0 0 0 1em;
+            font-style: italic;
         }
 
         .aibody {
@@ -1282,18 +1293,17 @@ a.active {
 ==================================================*/
 
 #projects_ai {
-    padding: 50px 0;
+    padding: 40px 0 0 0;
     background: $background-color-purple;
 }
 
 #projects_product {
-    /*padding: 100px 0;*/
-    padding-top: 50px;
+    padding: 40px 0 0 0;
     background: $background-color-coral;
 }
 
 #projects_creative {
-    padding-top: 50px;
+    padding: 40px 0 0 0;
     background: $background-color-teal;
 }
 
@@ -1387,7 +1397,9 @@ a.active {
 
 
 
-
+.round-offset {
+    margin: 1em .25em;
+}
 
 .portfolio_item .portfolio_item_hover {
     position: absolute;
@@ -1528,7 +1540,7 @@ a.active {
 }
 
 #moreproject {
-    // background: $main-light;
+    background: $background-color-coral;
 }
 
 .videos {
@@ -2313,6 +2325,15 @@ a.portfolio_item {
         margin: 8px 0;
         width: 100%;
     }
+    .card-eyebrow {
+        text-transform: uppercase;
+        font-size: .65em;
+        font-weight: 600;
+        letter-spacing: .06em;
+        margin: 1em 0;
+        line-height: 2;
+
+    }
 }
 
 
@@ -2381,7 +2402,7 @@ ul.arrowlist {
 
 .wave {
     width: 100%;
-    height: 20px;
+    height: 40px;
     display: flex;
     // transition: margin-left 300ms ease;
 
@@ -2394,6 +2415,9 @@ ul.arrowlist {
 
         animation-iteration-count: 1;
         animation-fill-mode: both;
+
+        width: 400%;
+        height: 40px;
     }
 
     @keyframes hscroll {
