@@ -6,11 +6,13 @@ $main-dark: hsl(357, 62%, 32%);
 $main-shadow: rgba($main-color, .3);
 $main-bg-light: rgba($main-color, .1);
 
-$text-color-light: rgba(0, 0, 0, 0.6);
+$text-color-light: rgba(0, 0, 0, 0.68);
 $text-color-dark: rgb(0, 0, 0);
+$text-color-lightest: rgba(0, 0, 0, .48);
+
 $round-corner: 4rem;
 
-$background-color-yellow: #FFF2D7;
+$background-color-yellow: #EEF8C2;
 $background-color-purple: #C9C1F0;
 $background-color-coral: #F58E82;
 $background-color-teal: #9DF1C5;
@@ -94,9 +96,10 @@ h2 {
     font-family: 'Signika', serif;
     font-size: 47px;
     line-height: 72px;
-    letter-spacing: 0;
+    letter-spacing: -.02em;
     margin-top: 0;
     margin-bottom: .5em;
+    font-weight: 600;
 
 }
 
@@ -152,10 +155,9 @@ b {
 }
 
 .subtaltext {
-    color: $text-color-light;
+    color: $text-color-lightest;
     font-weight: normal;
-    /*    color: rgba(0, 0, 0, 0.55);*/
-    font-size: 17px;
+    font-size: .8em;
 }
 
 blockquote {
@@ -328,10 +330,10 @@ a {
 
 .description {
     /*line-height: 39px;*/
-    max-width: 56rem;
+    max-width: 60rem;
     margin: 0;
     padding-bottom: 1em;
-    font-size: .95em;
+    font-size: 1em;
     text-wrap: pretty;
 
     &.subtal {
@@ -345,7 +347,43 @@ a {
     }
 }
 
+.herobtns {
+    display: flex;
+    text-transform: uppercase;
+    letter-spacing: .125em;
+    font-size: 14px;
+    height: 100%;
+    font-family: "Signika";
+    font-weight: 600;
+    gap: .75em;
 
+
+    .primary {
+        padding: .25em 1em;
+        // background: $main-bg-light;
+        border-radius: 1.5em;
+        color: $background-color-yellow;
+        background: $main-color;
+        margin-bottom: 0;
+
+        &:hover {
+            background: $main-dark;
+        }
+    }
+
+    .secondary {
+        padding: .25em 1em;
+        box-shadow: inset $main-shadow 0 0 0 1px;
+        border-radius: 1.5em;
+        color: $text-color-light;
+        margin-bottom: 0;
+
+        &:hover {
+            background: $main-bg-light;
+
+        }
+    }
+}
 
 #cube {
     position: fixed;
