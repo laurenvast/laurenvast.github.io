@@ -1,4 +1,4 @@
-var cube = function(p){
+var cube = function (p) {
 
   var a = 0, d = 1;
 
@@ -7,12 +7,12 @@ var cube = function(p){
     // p.canvas.id('cube');
   }
 
-  p.windowResized = function() {
+  p.windowResized = function () {
     p.resizeCanvas(p.windowWidth, p.windowHeight);
   }
 
-  p.draw = function() {
-    p.background(231, 247,164);
+  p.draw = function () {
+    p.background(255, 242, 215);
 
     var x, y, l, m, mx, my, x1, x2, x3, x4, y1, y2, y3, y4, y5, y6;
 
@@ -38,10 +38,12 @@ var cube = function(p){
     // fill(255, 0);
 
     // p.stroke(212, 72, 37);
-    p.stroke(226, 225, 0);
-        // p.stroke(208, 67, 74);
+    // p.stroke(250, 224, 201);
+    p.stroke(250, 213, 169);
+
+    // p.stroke(208, 67, 74);
     // p.stroke(246, 214, 206);
-    p.strokeWeight(l/16);
+    p.strokeWeight(l / 16);
 
     p.line(x1, y2, x4, y3);
     p.line(x4, y3, x4, y5);
@@ -55,10 +57,10 @@ var cube = function(p){
     p.line(x3, y4, x3, y2);
     p.line(x4, y5, x3, y4);
     p.line(x3, y2, x4, y3);
-    
+
     a += d;
 
-    if (a >= (p.height + p.width) / 2/2) {
+    if (a >= (p.height + p.width) / 2 / 2) {
       d = -d;
     }
     if (a <= 0) {

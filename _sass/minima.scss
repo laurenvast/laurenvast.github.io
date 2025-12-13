@@ -6,8 +6,15 @@ $main-dark: hsl(357, 62%, 32%);
 $main-shadow: rgba($main-color, .3);
 $main-bg-light: rgba($main-color, .1);
 
-$text-color-light: rgba(0, 0, 0, 0.55);
+$text-color-light: rgba(0, 0, 0, 0.6);
+$text-color-dark: rgb(0, 0, 0);
 $round-corner: 4rem;
+
+$background-color-yellow: #FFF2D7;
+$background-color-purple: #C9C1F0;
+$background-color-coral: #F58E82;
+$background-color-teal: #9DF1C5;
+$background-color-grey: #EEECE8;
 
 
 /* Table of Content
@@ -33,8 +40,9 @@ h1 {
     font-family: 'Signika', serif;
     font-size: 96px;
     line-height: 1.3;
-    letter-spacing: 0;
+    letter-spacing: -.02em;
     margin-bottom: 29px;
+    font-weight: 700;
 
 }
 
@@ -128,7 +136,8 @@ label {
 
 strong {
     color: $main-color;
-    font-family: "Signika";
+    // font-family: "Signika";
+    font-weight: 700;
 
 }
 
@@ -178,7 +187,7 @@ body {
     line-height: 1.65em;
     color: rgba(0, 0, 0, .75);
     letter-spacing: .02em;
-    background: #E7F7A4;
+    background: $background-color-yellow;
     // overflow-x: hidden;
     // width: 100%;
 }
@@ -311,20 +320,26 @@ a {
     padding-left: 30px;
 }
 
+.title {
+    color: $main-color;
+    font-family: 'Signika', serif;
+    font-size: 1.25em;
+}
+
 .description {
     /*line-height: 39px;*/
-    max-width: 62rem;
-    /*opacity: .8;*/
+    max-width: 56rem;
     margin: 0;
-    /*letter-spacing: 1px;*/
     padding-bottom: 1em;
+    font-size: .95em;
+    text-wrap: pretty;
 
     &.subtal {
         color: $text-color-light;
         font-weight: normal;
 
         strong {
-            color: rgba(0, 0, 0, .8);
+            color: $text-color-dark;
 
         }
     }
@@ -751,7 +766,7 @@ a.active {
 
 
 #reviews {
-    background: #ededed;
+    background: $background-color-grey;
     padding: 50px 0;
 
     .singlereview {
@@ -1229,18 +1244,18 @@ a.active {
 
 #projects_ai {
     padding: 50px 0;
-    background: #C9C1F0;
+    background: $background-color-purple;
 }
 
 #projects_product {
     /*padding: 100px 0;*/
     padding-top: 50px;
-    background: #F58E82;
+    background: $background-color-coral;
 }
 
 #projects_creative {
     padding-top: 50px;
-    background: #9DF1C5;
+    background: $background-color-teal;
 }
 
 .portfolio .categories-grid span {
@@ -2353,43 +2368,42 @@ ul.arrowlist {
 }
 
 .wave.pre-project {
-    // background: #E7F7A4;
-    fill: #C9C1F0;
+    fill: $background-color-purple;
 }
 
 .wave.pre-code {
-    background: #F58E82;
-    fill: #9DF1C5;
+    background: $background-color-coral;
+    fill: $background-color-teal;
 }
 
 .wave.pre-review {
-    background: #9DF1C5;
-    fill: #ededed;
+    background: $background-color-teal;
+    fill: $background-color-grey;
 }
 
 .wave.pre-about {
-    background: #ededed;
+    background: $background-color-grey;
     fill: white;
 }
 
 .wave.pre-more-design {
     background: white;
-    fill: #F58E82;
+    fill: $background-color-coral;
 }
 
 .wave.pre-more-code {
     background: white;
-    fill: #9DF1C5;
+    fill: $background-color-teal;
 }
 
 .wave.pre-ai {
-    background: #F58E82;
-    fill: #C9C1F0;
+    background: $background-color-coral;
+    fill: $background-color-purple;
 }
 
 .wave.pre-ai-to-design {
-    background: #C9C1F0;
-    fill: #F58E82;
+    background: $background-color-purple;
+    fill: $background-color-coral;
 }
 
 .wave.pre-footer {
@@ -2535,7 +2549,7 @@ ul.arrowlist {
 }
 
 .option-button:not(.selected):hover {
-    background: #E7F7A4;
+    background: $background-color-yellow;
 }
 
 .option-button.selected {
